@@ -5,7 +5,7 @@ import axios from "axios";
 import Footer from "../Footer/Footer.jsx";
 import ANavbar from "../Navbar/ANavbar.jsx";
 import HNavbar from "../Navbar/HNavbar.jsx";
-
+import api from '../../api/axios.js';
 const Pesticides = () => {
   const { id } = useParams();
   const [pesticide, setPesticide] = useState(null);
@@ -18,7 +18,7 @@ const Pesticides = () => {
   useEffect(() => {
     const fetchPesticide = async () => {
       try {
-        const response = await axios.get(`http://localhost:3000/api/pesticides/${id}`);
+        const response = await api.get(`/api/pesticides/${id}`);
         setPesticide(response.data);
       } catch (err) {
         setError(
@@ -36,7 +36,7 @@ const Pesticides = () => {
     const checkAuthStatus = async () => {
       try {
         const token = localStorage.getItem("token");
-        const response = await axios.get("http://localhost:3000/auth/status", {
+        const response = await api.get("/auth/status", {
           headers: { Authorization: `Bearer ${token}` },
         });
         setIsLoggedIn(response.data.isAuthenticated);

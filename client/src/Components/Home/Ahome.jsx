@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import ANavbar from "../../Components/Navbar/ANavbar";
 import bghome from '../../assets/Bg Home.jpg';
-
+import api from '../../api/axios.js';
 export default function Ahome() {
   const navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState('');
@@ -42,7 +42,7 @@ export default function Ahome() {
       return;
     }
 
-    axios.get(`http://localhost:3000/crops/search?query=${encodeURIComponent(formattedSearchTerm)}`)
+    api.get(`/crops/search?query=${encodeURIComponent(formattedSearchTerm)}`)
       .then(response => {
         setCrops(response.data);
         console.log("Search Results for Crops:", response.data);

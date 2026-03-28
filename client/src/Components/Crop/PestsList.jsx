@@ -6,7 +6,7 @@ import img1 from '../../assets/FRAME1.png';
 import img2 from '../../assets/FRAME2.png';
 import img3 from '../../assets/FRAME3.png';
 import img4 from '../../assets/test.jpg';
-
+import api from '../../api/axios.js';
 // Map pesticide names to specific images (extend as needed)
 const pestImages = {
   "Mancozeb": img2,
@@ -63,8 +63,8 @@ export default function PestsList() {
   useEffect(() => {
     const fetchPests = async () => {
       try {
-        const response = await axios.get(
-          `http://localhost:3000/api/pests?crop=${encodeURIComponent(cropName)}`
+        const response = await api.get(
+          `/api/pests?crop=${encodeURIComponent(cropName)}`
         );
         setPests(response.data);
       } catch (err) {
@@ -83,8 +83,8 @@ export default function PestsList() {
 
       try {
         setDetailLoading(true);
-        const response = await axios.get(
-          `http://localhost:3000/api/pesticides/${selectedPesticide._id}`
+        const response = await api.get(
+          `/api/pesticides/${selectedPesticide._id}`
         );
         setPesticideDetail(response.data);
         setDetailError(null);

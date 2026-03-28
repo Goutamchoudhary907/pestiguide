@@ -16,7 +16,7 @@ import sunflower from '../../assets/sunfower.jpg';
 import tur from '../../assets/tur.jpeg';
 import urad from '../../assets/urad.jpg';
 import wheat from '../../assets/wheat.jpeg';
-
+import api from '../../api/axios.js';
 const cropImages = {
   Rice: RiceImg,
   Maize: maizeimg,
@@ -60,8 +60,8 @@ export default function SeasonCrops() {
           setLoading(true);
           setError(null);
           try {
-            const response = await axios.get(
-              `http://localhost:3000/crops?season=${selectedSeason}`
+            const response = await api.get(
+              `/crops?season=${selectedSeason}`
             );
             console.log("Crops fetched:", response.data);
             setCrops(response.data);

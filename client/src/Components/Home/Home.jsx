@@ -9,7 +9,7 @@ import bbgimg from "../../assets/BackGroundHome.jpg";
 import img1 from "../../assets/img1.jpg";
 import img2 from "../../assets/img2.jpg";
 import img3 from "../../assets/img3.jpg";
-
+import api from '../../api/axios.js';
 export default function Home() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -21,7 +21,7 @@ export default function Home() {
       setLoading(true);
       try {
         const token = localStorage.getItem("token");
-        const response = await axios.get("http://localhost:3000/auth/status", {
+        const response = await api.get("/auth/status", {
           headers: { Authorization: `Bearer ${token}` },
         });
         setIsLoggedIn(response.data.isAuthenticated);
@@ -58,7 +58,7 @@ export default function Home() {
       return;
     }
 
-    axios.get(`http://localhost:3000/crops/search?query=${encodeURIComponent(formatted)}`)
+    api.get(`/crops/search?query=${encodeURIComponent(formatted)}`)
       .then((response) => {
         const matchedCrop = response.data.find((crop) => crop.name === formatted);
         if (matchedCrop) {
@@ -115,7 +115,7 @@ export default function Home() {
               <img
                 src={img1}
                 alt=""
-                className="absolute top-48 right-80 w-56 h-56 object-cover rounded-2xl shadow-lg"
+                className="absolute top-48 right-[330px] w-56 h-56 object-cover rounded-2xl shadow-lg"
               />
               <img
                 src={img2}
@@ -130,7 +130,7 @@ export default function Home() {
             </div>
 
             {/* Search Bar */}
-            <div className="absolute left-1/2 -translate-x-1/2 bottom-20 w-[90%] max-w-3xl bg-white/20 backdrop-blur-md rounded-2xl p-6 shadow-lg">
+            <div className="absolute left-16 bottom-20 w-[90%] max-w-3xl bg-white/20 backdrop-blur-md rounded-2xl p-6 shadow-lg">
               <label className="block text-center text-white text-2xl md:text-3xl mb-3 font-medium">
                 Find What You Need
               </label>

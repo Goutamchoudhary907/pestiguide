@@ -1,13 +1,13 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import axios from 'axios';
-
+import api from '../../api/axios.js';
 const ANavbar = () => {
   const navigate = useNavigate();
 
   const handleLogout = async () => {
     try {
-      await axios.post("http://localhost:3000/auth/signout");
+      await api.post("auth/signout");
       localStorage.removeItem("token");
       navigate("/", { state: { forceRefresh: true } });
     } catch (error) {
