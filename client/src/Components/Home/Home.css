@@ -1,0 +1,237 @@
+
+.session{
+    width: 100%;
+    margin-bottom: 100px;
+    position: absolute;
+    top: 90px;
+}
+
+.searchBoxhome{
+    background-color: rgba(255, 255, 255, 0.3);
+    height: 50px;
+    width: 90%;
+    border-radius: 25px;
+    padding: 10px 20px;
+    font-size: 27px;
+    text-align: center;
+    border: none;
+    outline: none;
+    color: white;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease-in-out;
+
+}
+.searchBoxhome::placeholder{
+    font-weight: 500;  
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 25px;
+}
+.SearchButtons{
+    display: flex;
+    justify-content: space-evenly;
+    gap: 15px;
+    margin-top: 10px;
+}
+.SearchButtons button{
+    width: 150px;
+    font-size: 20px;
+} 
+.SearchBar{
+    position: absolute;
+    padding: 20px;
+    display:block;
+    height: 200px;
+    width: 800px;
+    top: 400px;
+    left: 70px;
+    text-align: center;
+    border-radius: 25px;
+    background: rgba(255, 255, 255, 0.2); /* Glass effect */
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+.SearchBarLabel{
+    font-size: 30px;
+    margin-bottom: 15px;
+    color: white;
+    font-weight: 500;
+}
+.SearchInput{
+    margin-bottom: 15px;  
+}
+#title{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    position: absolute;
+    font-size: 55px;
+    left: 70px;
+    top: 150px;
+    font-weight: 800;
+    color: aliceblue;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+} 
+
+#backgimg {
+    position: relative;
+    height: 45rem;
+    width: 100%;
+}
+
+/* .images {
+    background: transparent;
+    /* right: 130px; */
+    /* position: absolute; */
+    /* top: 180px; */
+/* } */
+
+#img1 {
+    height: 250px;
+    width: 230px;
+    right: 380px;
+    position: absolute;
+    top: 220px;
+    /* rotate: -30deg; */
+    margin-right: 50px;
+    border-radius: 20px;
+    /* box-shadow: 3.5px 3.5px 5px rgb(191, 245, 134); */
+    /* border-style: solid; */
+    /* border-color:none; */
+
+}
+#img2 {
+    height: 200px;
+    width: 250px;
+    position: absolute;
+    top: 120px;
+    right: 100px;
+    /* rotate:30deg; */
+    border-radius: 20px;
+    /* box-shadow: 3.5px 3.5px 5px rgb(191, 245, 134); */
+    /* border-style: solid;
+    border-color:rgb(191, 245, 134); */
+}
+#img3 {
+    height: 200px;
+    width: 250px;
+    position: absolute;
+    top: 450px;
+    right: 100px;
+    border-radius: 20px;
+    /* box-shadow: 3.5px 3.5px 5px rgb(191, 245, 134); */
+    /* border-style: solid;
+    border-color:rgb(191, 245, 134); */
+}
+
+.subheading2 {
+    position: absolute;
+    top: 83rem;
+    left: 52rem;
+    font-size: 40px;
+    font-weight: 500;
+    color: rgb(0, 0, 0);
+    text-shadow: 2px 2px 4px rgb(196, 234, 147);
+}
+
+.Kfeatures {
+    position: absolute;
+    top: 92rem;
+    left: 7rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+
+.Kfeatures .card{
+    border: solid black 1px;
+    border-radius: 10px;
+    margin-right: 20px;
+    padding: 15px;
+    height: 300px;
+    width: 300px;
+    margin-left: 20px;
+    /* box-shadow: 3.5px 3.5px 5px rgb(0, 0, 0); */
+    /* border-color: rgb(154, 243, 144); */
+    font-size: 23px;
+    font-weight: 400;
+}
+
+.subheading3 {
+    position: absolute;
+    top: 120rem;
+    left: 40rem;
+    font-size: 40px;
+    font-weight: 500;
+    color: rgb(0, 0, 0);
+    text-shadow: 2px 2px 4px rgb(196, 234, 147);
+}
+
+.Environmentalimpact{
+    position: absolute;
+    top: 130rem;
+    left: 23rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 100px;
+}
+
+.Environmentalimpact .card2 {
+    border: solid black 1px;
+    border-radius: 10px;
+    margin-right: 20px;
+    padding: 15px;
+    height: 150px;
+    width: 300px;
+    margin-left: 20px;
+    /* box-shadow: 3.5px 3.5px 5px rgb(155, 194, 158);
+    border-color: rgb(154, 243, 144); */
+    font-size: 23px;
+    font-weight: 400;
+    text-align: center;
+}
+
+.myfoot {
+    position: absolute;
+    top: 165rem;
+    width: 100%;
+}
+
+
+#seasonheading {
+    position: absolute;
+    top: 55rem;
+    left: 49rem;
+    font-size: 40px;
+    font-weight: 500;
+    color: rgb(0, 0, 0);
+    text-shadow: 2px 2px 4px rgb(196, 234, 147);
+}
+.seasons {
+    display: flex;
+    position: absolute;
+    top: 63rem;
+    left: 23rem;
+    justify-content: center;
+    padding: 20px;
+    gap: 7px;
+    margin-bottom: 100px;
+    color: black;
+}
+
+#seasonbutton {
+    border: solid rgb(111, 209, 124) 2px ;
+    border-radius: 20px;
+    height: 10rem;
+    width: 20rem;
+    margin-right: 55px;
+    padding: 10px 45px;
+    color: black;
+    font-size: 20px;
+}
+
+
+
+
+

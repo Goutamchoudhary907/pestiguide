@@ -1,0 +1,91 @@
+.global {
+    margin-left: 20px;
+    margin-bottom: 20px;
+    height: 100%;
+    width: 100%;
+    color:black
+}
+
+body {
+    overflow-x: hidden;
+}
+.searchbox{
+    position: absolute;
+    height: 40px;
+    width: 600px;
+    top: 270px;
+    left: 180px;
+    border-radius: 5px;
+    padding: 6px 40px;
+    font-size: 22px;
+    box-shadow: 3.5px 3.5px 5px rgb(191, 245, 134);
+    border-style: solid;
+    border-color:grey;
+
+}
+
+.local {
+    padding: 5px 7px;
+    position: absolute;
+    top: 500px;
+    width: 90%; 
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
+    /* margin-bottom: 500px; */
+}
+
+.card {
+    gap: 15px;
+    padding: 10px;
+    height: 300px;
+    width: 400px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgb(181, 230, 134);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    font-weight: 400; 
+    text-align: center;
+    font-size: 20px;
+}
+
+.card button {
+    background-color:greenyellow;
+    font-weight:400 ;
+    border: none;
+    margin: 5px;
+    height: 50px;
+    width: 200px;
+}
+
+.above {
+    position: absolute;
+    top: 140px;
+    /* left: 180px; */
+    width: 100%;
+    background-color: rgb(168, 224, 99);
+    height: 230px;
+}
+
+#selectbutton {
+    border-radius: 30px;
+    margin-right: 50px;
+    position: relative;
+    left: 180px;
+}
+
+#seasontitle {
+    position: relative;
+    left: 180px;
+}
+
+
+.card img{
+  width: 360px;
+  height:150px
+}
+
+
