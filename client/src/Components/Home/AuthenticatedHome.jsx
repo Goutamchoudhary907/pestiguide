@@ -1,17 +1,16 @@
-// frontend/src/Pages/Ahome.jsx
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
-import ANavbar from "../../Components/Navbar/ANavbar";
-import bghome from '../../assets/Bg Home.jpg';
 import api from '../../api/axios.js';
-export default function Ahome() {
+import ANavbar from "../Navbar/AuthNavbar.jsx";
+import bghome from '../../assets/Bg Home.jpg';
+
+export default function AuthenticatedHome() {
   const navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState('');
   const [crops, setCrops] = useState([]);
   const [pesticides, setPesticides] = useState([]);
 
-
+  // (existing console.log kept)
   crops.forEach(crop => console.log("  Crop Name:", JSON.stringify(crop.name)));
 
   const handleSeasonSelect = (season) => {
@@ -64,23 +63,26 @@ export default function Ahome() {
     <div>
       <ANavbar />
 
-      <div className="relative w-full mt-16">
+      {/* Hero section with background */}
+      <div className="relative w-full min-h-screen">
         <img
           src={bghome}
           alt=""
-          className="w-full h-[45rem] object-cover blur-sm"
+          className="absolute inset-0 w-full h-full object-cover blur-sm"
         />
+        <div className="absolute inset-0 bg-black/30" /> 
 
-        <h1 className="absolute top-20 left-1/2 transform -translate-x-1/2 text-5xl font-bold text-white text-center drop-shadow-lg whitespace-nowrap">
-          Smart Pesticides Management For Better Farming
-        </h1>
+        {/* Content container – flex column, centered */}
+        <div className="relative  flex flex-col items-center justify-center min-h-screen px-4 py-20 text-white text-center">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 drop-shadow-lg">
+            Smart Pesticides Management <br /> For Better Farming
+          </h1>
+          <p className="text-lg sm:text-xl md:text-2xl mb-8 drop-shadow">
+            Get expert recommendations based on your season and crop type
+          </p>
 
-        <p className="absolute top-40 left-1/2 transform -translate-x-1/2 text-3xl text-white text-center drop-shadow">
-          Get expert recommendations based on your season and crop type
-        </p>
-
-        <div className="absolute top-64 left-1/2 transform -translate-x-1/2 w-[66rem] max-w-[90vw] bg-white/20 backdrop-blur-md rounded-2xl p-6 shadow-lg">
-          <div className="mb-4">
+          {/* Search bar – responsive width */}
+          <div className="w-full max-w-2xl bg-white/20 backdrop-blur-md rounded-2xl p-4 sm:p-6 shadow-lg mb-12">
             <input
               type="text"
               value={searchTerm}
@@ -91,25 +93,25 @@ export default function Ahome() {
                 }
               }}
               placeholder="Search for pesticides, crops..."
-              className="w-full px-5 py-3 text-center text-xl rounded-full bg-white/30 text-white placeholder-white/70 outline-none focus:ring-2 focus:ring-green-400 transition"
+              className="w-full px-4 py-3 text-center text-base sm:text-lg rounded-full bg-white/30 text-white placeholder-white/70 outline-none focus:ring-2 focus:ring-green-400 transition"
             />
           </div>
-        </div>
 
-        <h2 className="absolute top-[400px] left-1/2 transform -translate-x-1/2 text-2xl font-medium text-white drop-shadow">
-          Select Your Season
-        </h2>
-
-        <div className="absolute top-[450px] left-1/2 transform -translate-x-1/2 flex gap-8">
-          {['Kharif', 'Rabi', 'Zaid'].map((season) => (
-            <button
-              key={season}
-              onClick={() => handleSeasonSelect(season)}
-              className="w-48 h-24 rounded-2xl border-2 border-green-500 bg-white/10 hover:bg-white/20 hover:scale-105 transition text-white font-medium text-lg shadow-md"
-            >
-              {season} Season <br />
-            </button>
-          ))}
+          {/* Season selection */}
+          <h2 className="text-xl sm:text-2xl font-medium mb-4 drop-shadow">
+            Select Your Season
+          </h2>
+          <div className="flex flex-wrap justify-center gap-4 sm:gap-6">
+            {['Kharif', 'Rabi', 'Zaid'].map((season) => (
+              <button
+                key={season}
+                onClick={() => handleSeasonSelect(season)}
+                className="w-36 sm:w-48 h-20 sm:h-24 rounded-2xl border-2 border-green-500 bg-white/10 hover:bg-white/20 hover:scale-105 transition text-white font-medium text-base sm:text-lg shadow-md"
+              >
+                {season} Season
+              </button>
+            ))}
+          </div>
         </div>
       </div>
     </div>

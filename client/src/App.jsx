@@ -1,6 +1,5 @@
 import React from "react";
 import Login from "../src/Components/Login/Login.jsx";
-import Ahome from "../src/Components/Home/Ahome.jsx";
 import Pesticides from "./Components/Pesticides/Pesticides.jsx";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import SeasonCrops from "./Components/Seasons/SeasonCrops.jsx";

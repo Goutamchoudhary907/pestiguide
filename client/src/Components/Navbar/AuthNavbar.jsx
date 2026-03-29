@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import axios from 'axios';
 import api from '../../api/axios.js';
-const ANavbar = () => {
+const AuthNavbar = () => {
   const navigate = useNavigate();
 
   const handleLogout = async () => {
@@ -42,4 +42,4 @@ const ANavbar = () => {
   );
 };
 
-export default ANavbar;
+export default AuthNavbar;

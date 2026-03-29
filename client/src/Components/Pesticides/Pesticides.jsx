@@ -3,8 +3,8 @@ import { useLocation, useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import Footer from "../Footer/Footer.jsx";
-import ANavbar from "../Navbar/ANavbar.jsx";
-import HNavbar from "../Navbar/HNavbar.jsx";
+import ANavbar from "../Navbar/AuthNavbar.jsx";
+import HNavbar from "../Navbar/PublicNavbar.jsx";
 import api from '../../api/axios.js';
 const Pesticides = () => {
   const { id } = useParams();

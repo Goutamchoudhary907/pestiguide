@@ -31,6 +31,10 @@ const pesticideSchema = new mongoose.Schema({
   },
   "Application Method": String,
   "Target Species": String,
+   imageUrl: {
+    type: String,
+    required: false,  
+  },
   "Safety Precautions": [String],
   "Environmental Impact": environmentalImpactSchema,
   "Usage Instructions": [String],

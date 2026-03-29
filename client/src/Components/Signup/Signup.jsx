@@ -2,7 +2,7 @@ import { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import Footer from '../Footer/Footer.jsx';
-import Navbar from "../Navbar/HNavbar.jsx";
+import Navbar from "../Navbar/PublicNavbar.jsx";
 import api from '../../api/axios.js';
 
 export default function Signup() {

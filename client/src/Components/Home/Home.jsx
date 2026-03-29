@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import HNavbar from "../Navbar/HNavbar.jsx";
-import ANavbar from "../Navbar/ANavbar.jsx";
-import Ahome from "../Home/Ahome.jsx";
+import PublicNavbar from "../Navbar/PublicNavbar.jsx";
+import AuthNavbar from "../Navbar/AuthNavbar.jsx";
+import AuthenticatedHome from "../Home/AuthenticatedHome.jsx";
 import Footer from "../../Components/Footer/Footer.jsx";
 import bbgimg from "../../assets/BackGroundHome.jpg";
 import img1 from "../../assets/img1.jpg";
@@ -88,103 +88,95 @@ export default function Home() {
     <div className="min-h-screen bg-white text-gray-900 dark:bg-gray-900 dark:text-gray-100">
       {isLoggedIn ? (
         <>
-          <ANavbar />
-          <Ahome />
+          <AuthNavbar />
+          <AuthenticatedHome />
         </>
       ) : (
         <>
-          <HNavbar />
+          <PublicNavbar />
 
-          {/* Hero section */}
-          <div className="relative w-full">
-            <img
-              src={bbgimg}
-              alt="Farming"
-              className="w-full h-[45rem] object-cover"
-            />
-            {/* Dark overlay for better text contrast */}
-            <div className="absolute inset-0 bg-black/40" />
+       {/* Hero section */}
+<div className="relative w-full min-h-[24rem] sm:min-h-[32rem] md:min-h-[45rem]">
+  <img
+    src={bbgimg}
+    alt="Farming"
+    className="absolute inset-0 w-full h-full object-cover"
+  />
+  <div className="absolute inset-0 bg-black/40" />
 
-            {/* Title */}
-            <h1 className="absolute top-36 left-6 md:left-16 text-4xl md:text-6xl font-extrabold text-white drop-shadow-lg">
-              Smart Pesticides Management <br /> For Better Farming
-            </h1>
+  <div className="relative flex flex-col md:flex-row items-center justify-between 
+    h-full min-h-[24rem] sm:min-h-[32rem] md:min-h-[45rem] 
+    px-4 sm:px-8 md:px-16 pt-20 sm:pt-25 md:pt-0 lg:pt-28 pb-12 sm:pb-20 md:pb-36 gap-6">
 
-            {/* Decorative images - hidden on small screens */}
-            <div className="hidden md:block">
-              <img
-                src={img1}
-                alt=""
-                className="absolute top-48 right-[330px] w-56 h-56 object-cover rounded-2xl shadow-lg"
-              />
-              <img
-                src={img2}
-                alt=""
-                className="absolute top-28 right-20 w-60 h-48 object-cover rounded-2xl shadow-lg"
-              />
-              <img
-                src={img3}
-                alt=""
-                className="absolute top-[26rem] right-20 w-60 h-48 object-cover rounded-2xl shadow-lg"
-              />
-            </div>
+    <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-extrabold 
+      text-white drop-shadow-lg text-center md:text-left 
+      w-full md:w-1/2 leading-tight lg:-mt-8 xl:-mt-34">
+      Smart Pesticides Management <br /> For Better Farming
+    </h1>
 
-            {/* Search Bar */}
-            <div className="absolute left-16 bottom-20 w-[90%] max-w-3xl bg-white/20 backdrop-blur-md rounded-2xl p-6 shadow-lg">
-              <label className="block text-center text-white text-2xl md:text-3xl mb-3 font-medium">
-                Find What You Need
-              </label>
-              <input
-                type="text"
-                value={unauthSearchTerm}
-                onChange={handleUnauthSearchChange}
-                onKeyDown={(e) => e.key === "Enter" && handleUnauthSearchSubmit()}
-                placeholder="Search for pesticides, crops..."
-                className="w-full px-5 py-3 text-center text-xl rounded-full bg-white/30 text-white placeholder-white/70 outline-none focus:ring-2 focus:ring-green-400 transition"
-              />
-              <div className="flex justify-center gap-4 mt-4">
-                <button
-                  onClick={() => handleButtonClickSearch('Rice')}
-                  className="px-6 py-2 bg-green-600 hover:bg-green-700 text-white rounded-full transition"
-                >
-                  Rice
-                </button>
-                <button
-                  onClick={() => handleButtonClickSearch('Rabi')}
-                  className="px-6 py-2 bg-green-600 hover:bg-green-700 text-white rounded-full transition"
-                >
-                  Rabi
-                </button>
-                <button
-                  onClick={() => handleButtonClickSearch('Wheat')}
-                  className="px-6 py-2 bg-green-600 hover:bg-green-700 text-white rounded-full transition"
-                >
-                  Wheat
-                </button>
-              </div>
-            </div>
-          </div>
+    <div className="hidden md:flex flex-col gap-4 w-1/2 items-end">
+      <div className="flex gap-4 justify-end">
+        <img src={img1} alt="" className="w-40 lg:w-56 h-40 lg:h-56 object-cover rounded-2xl shadow-lg" />
+        <img src={img2} alt="" className="w-44 lg:w-60 h-36 lg:h-48 object-cover rounded-2xl shadow-lg self-start" />
+      </div>
+      <img src={img3} alt="" className="w-44 lg:w-60 h-36 lg:h-48 object-cover rounded-2xl shadow-lg self-end" />
+    </div>
+  </div>
 
-          {/* Seasons Section */}
-          <div className="py-20 px-4 text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-12">Select Your Season</h2>
-            <div className="flex flex-wrap justify-center gap-8">
-              {[
-                { name: "Kharif Season", months: "June-October", color: "bg-green-100 dark:bg-green-900/30" },
-                { name: "Rabi Season", months: "October-March", color: "bg-blue-100 dark:bg-blue-900/30" },
-                { name: "Zaid Season", months: "March-June", color: "bg-yellow-100 dark:bg-yellow-900/30" },
-              ].map((season) => (
-                <button
-                  key={season.name}
-                  onClick={() => handleSeasonSelect(season.name.split(" ")[0])}
-                  className={`w-64 h-40 rounded-2xl ${season.color} border border-gray-300 dark:border-gray-700 hover:scale-105 transition shadow-md`}
-                >
-                  <div className="font-bold text-xl">{season.name}</div>
-                  <div className="text-sm text-gray-600 dark:text-gray-400">{season.months}</div>
-                </button>
-              ))}
-            </div>
-          </div>
+  <div className="absolute bottom-4 sm:bottom-6 left-4 sm:left-8 md:left-16
+    w-[95%] sm:w-[85%] md:w-[45%] lg:w-[42%] max-w-3xl
+    bg-white/20 backdrop-blur-md rounded-2xl p-3 sm:p-5 shadow-lg">
+    <label className="block text-center text-white text-lg sm:text-2xl md:text-3xl mb-2 sm:mb-3 font-medium">
+      Find What You Need
+    </label>
+    <input
+      type="text"
+      value={unauthSearchTerm}
+      onChange={handleUnauthSearchChange}
+      onKeyDown={(e) => e.key === "Enter" && handleUnauthSearchSubmit()}
+      placeholder="Search for pesticides, crops..."
+      className="w-full px-4 py-2 sm:py-3 text-center text-base sm:text-lg rounded-full 
+        bg-white/30 text-white placeholder-white/70 outline-none 
+        focus:ring-2 focus:ring-green-400 transition"
+    />
+    <div className="flex justify-center gap-3 mt-3 flex-wrap">
+      {['Rice', 'Rabi', 'Wheat'].map((term) => (
+        <button
+          key={term}
+          onClick={() => handleButtonClickSearch(term)}
+          className="px-4 sm:px-5 py-1.5 sm:py-2 bg-green-600 hover:bg-green-700 
+            text-white rounded-full text-sm sm:text-base transition"
+        >
+          {term}
+        </button>
+      ))}
+    </div>
+  </div>
+</div>
+
+{/* Seasons Section */}
+<div className="py-12 sm:py-16 md:py-20 px-4 text-center">
+  <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-8 sm:mb-12">
+    Select Your Season
+  </h2>
+  <div className="flex flex-wrap justify-center gap-4 sm:gap-6 md:gap-8">
+    {[
+      { name: "Kharif Season", months: "June-October",   color: "bg-green-100 dark:bg-green-900/30" },
+      { name: "Rabi Season",   months: "October-March",  color: "bg-blue-100 dark:bg-blue-900/30"  },
+      { name: "Zaid Season",   months: "March-June",     color: "bg-yellow-100 dark:bg-yellow-900/30" },
+    ].map((season) => (
+      <button
+        key={season.name}
+        onClick={() => handleSeasonSelect(season.name.split(" ")[0])}
+        className={`w-44 sm:w-56 md:w-64 h-28 sm:h-36 md:h-40 rounded-2xl ${season.color} 
+          border border-gray-300 dark:border-gray-700 hover:scale-105 transition shadow-md`}
+      >
+        <div className="font-bold text-lg sm:text-xl">{season.name}</div>
+        <div className="text-xs sm:text-sm text-gray-600 dark:text-gray-400">{season.months}</div>
+      </button>
+    ))}
+  </div>
+</div>
  </>
       )}
           {/* Key Features Section */}

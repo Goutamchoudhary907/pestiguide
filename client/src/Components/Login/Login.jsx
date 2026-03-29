@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import axios from 'axios';
 import { useNavigate, useSearchParams } from "react-router-dom";
-import Navbar from "../Navbar/HNavbar.jsx";
+import Navbar from "../Navbar/PublicNavbar.jsx";
 import api from '../../api/axios.js';
 export default function Login() {
   const [email, setEmail] = useState("");

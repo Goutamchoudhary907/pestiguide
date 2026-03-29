@@ -1,24 +1,15 @@
 import React, { useEffect, useState } from "react";
-import ANavbar from "../Navbar/ANavbar";
+import ANavbar from "../Navbar/AuthNavbar.jsx";
 import { useLocation, useNavigate } from "react-router-dom";
-import axios from 'axios';
-import img1 from '../../assets/FRAME1.png';
 import img2 from '../../assets/FRAME2.png';
-import img3 from '../../assets/FRAME3.png';
 import img4 from '../../assets/test.jpg';
 import api from '../../api/axios.js';
-// Map pesticide names to specific images (extend as needed)
+
 const pestImages = {
   "Mancozeb": img2,
-  // Add other mappings here, e.g.:
-  // "Chlorpyrifos": img2,
-  // "Glyphosate": img3,
 };
 
 const Card = ({ item, onClick }) => {
-  // Log the item to see actual keys (remove after debugging)
-  console.log("Pesticide item:", item);
-
   const activeIngredients = item["Active Ingredients"] || "Not specified";
   const applicationMethod = item["Application Method"] || "Not specified";
 
@@ -27,11 +18,13 @@ const Card = ({ item, onClick }) => {
       className="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition cursor-pointer"
       onClick={() => onClick(item)}
     >
-      <img
-        src={pestImages[item.Name] || item.imageUrl || img4}
-        alt={item.Name}
-        className="w-full h-40 object-cover"
-      />
+      <div className="w-full h-40 bg-gray-100 dark:bg-gray-800 flex items-center justify-center overflow-hidden rounded-t-xl">
+  <img
+    src={item.imageUrl || pestImages[item.Name] || img4}
+    alt={item.Name}
+    className="w-full h-full object-contain"
+  />
+</div>
       <div className="p-4">
         <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
           {item.Name}
