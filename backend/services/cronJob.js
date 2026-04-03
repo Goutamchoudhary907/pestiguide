@@ -11,6 +11,8 @@ cron.schedule('*/14 0,8-23 * * *', async () => {
     } catch (err) {
       console.error('Keep alive ping failed:', err.message);
     }
+  },{
+   timezone: "Asia/Kolkata" 
   });
 
 }
